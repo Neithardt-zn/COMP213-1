@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Created by Lumia on 2017/11/6.
  */
-public class Player {
+public abstract class Player {
 
     private ArrayList<Card> cards;
     private int numOfAttributes;
@@ -36,9 +36,7 @@ public class Player {
         return removedCard;
     }
 
-    public Attribute chooseAttribute() {
-        return this.getTop().getAttributes().get(0);
-    }
+    public abstract Attribute chooseAttribute();
 
     public String getName() {
         return name;

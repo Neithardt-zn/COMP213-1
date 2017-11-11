@@ -7,7 +7,8 @@ public class RandomComputer extends Player {
         super(name, numOfCards, numOfAttributes);
     }
 
-    public Attribute chooseAttributes() {
-        return super.getTop().getAttributes().get((int) Math.random() * super.getNumOfAttributes());
+    @Override
+    public Attribute chooseAttribute() {
+        return super.getTop().getAttributes().get((int) (Math.random() * super.getNumOfAttributes()));
     }
 }

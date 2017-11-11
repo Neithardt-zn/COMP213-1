@@ -10,6 +10,7 @@ public class SmartComputer extends Player {
 
     }
 
+    @Override
     public Attribute chooseAttribute() {
         ArrayList<Attribute> attributes = super.getTop().getAttributes();
         Attribute maxAttribute = attributes.get(0);

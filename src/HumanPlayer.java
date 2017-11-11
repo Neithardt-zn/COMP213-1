@@ -7,10 +7,20 @@ public class HumanPlayer extends Player {
         super(name, numOfCards, numOfAttributes);
     }
 
-    public Attribute chooseAttributes() {
+    @Override
+    public Attribute chooseAttribute() {
         System.out.println("Please choose the attributes you want to play with");
         super.getTop().print();
-        int numAttribute = Integer.parseInt(System.console().readLine());
+        Boolean valid = false;
+        int numAttribute = 0;
+        while(!valid) {
+            try {
+                numAttribute = Integer.parseInt(System.console().readLine());
+                valid = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter valid number");
+            }
+        }
         return super.getTop().getAttributes().get(numAttribute);
     }
 
