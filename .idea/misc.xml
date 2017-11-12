@@ -52,8 +52,8 @@
     <option name="OPTION_DEPRECATED_LIST" value="true" />
     <option name="OTHER_OPTIONS" />
     <option name="HEAP_SIZE" />
-    <option name="LOCALE" />
-    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="LOCALE" value="en" />
+    <option name="OPEN_IN_BROWSER" value="false" />
     <option name="OPTION_INCLUDE_LIBS" value="false" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">

@@ -138,6 +138,7 @@ public class Game {
      * each player's top card hold.
      * The biggest value of player will win
      * If there are many players hold same biggest value, randomly choose one winner
+     * Calls {@link Game#play(int)} to choose one player to play in each round
      */
     public void start() {
         Player randomPlayer;
