@@ -31,7 +31,7 @@ public abstract class Player {
 
     }
 
-    public Card removeCard() {
+    public Card removeTopCard() {
         Card removedCard = this.cards.get(0);
         this.cards.remove(0);
         numCards--;

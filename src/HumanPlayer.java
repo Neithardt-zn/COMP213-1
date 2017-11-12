@@ -16,6 +16,7 @@ public class HumanPlayer extends Player {
         while(!valid) {
             try {
                 numAttribute = Integer.parseInt(System.console().readLine());
+                numAttribute ++;
                 valid = true;
             } catch (NumberFormatException e) {
                 System.out.println("Please enter valid number");
