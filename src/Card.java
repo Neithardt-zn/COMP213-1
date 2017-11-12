@@ -16,7 +16,7 @@ public class Card {
         this.name = nameOfCard;
         attributes = new ArrayList<Attribute>(numAttributes);
         for (int i = 0; i < numAttributes; i++) {
-            String name = "Attributes " + i;
+            String name = "Attributes " + String.valueOf(i + 1);
             int value = (int)(Math.random() * 10);
             attributes.add(new Attribute(name, value));
         }
@@ -42,7 +42,7 @@ public class Card {
      * Print all attributes of card
      */
     public void print() {
-        System.out.println(name);
+        System.out.println("---" + name);
         for (Attribute attribute : attributes) {
             attribute.print();
         }

@@ -20,12 +20,16 @@ public class HumanPlayer extends Player {
         while(!valid) {
             try {
                 numAttribute = Integer.parseInt(input.nextLine());
+                if (numAttribute > this.getNumOfAttributes() || numAttribute <= 0){
+                    System.out.println("Please enter valid number");
+                    continue;
+                }
                 valid = true;
             } catch (NumberFormatException e) {
                 System.out.println("Please enter valid number");
             }
         }
-        return super.getTop().getAttributes().get(numAttribute);
+        return super.getTop().getAttributes().get(numAttribute - 1);
     }
 
 }

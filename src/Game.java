@@ -48,16 +48,19 @@ public class Game {
 
     public Player play(int currentPlayer) {
         Attribute chosenAttribute = players.get(currentPlayer).chooseAttribute();
-        System.out.println("Current attribute is " + chosenAttribute.getName());
+        System.out.println(chosenAttribute.getName() + " has been chosen");
         ArrayList<Player> winPlayers = new ArrayList<Player>();
         Attribute maxAttribute = chosenAttribute;
         for (Player player : players) {
             Attribute currentAttribute = player.getTop().getChosenAttribute(chosenAttribute);
             if (maxAttribute.compareTo(currentAttribute) < 0)
-                maxAttribute = chosenAttribute;
+                maxAttribute = currentAttribute;
         }
+        System.out.println("Enter any key to show all top cards of all players");
+        input.nextLine();
         System.out.println("Top cards of all players are:");
         for (Player player : players) {
+            System.out.println(player.getName() + ": ");
             player.getTop().print();
             Attribute currentAttribute = player.getTop().getChosenAttribute(chosenAttribute);
             if (maxAttribute.compareTo(currentAttribute) == 0)
@@ -65,10 +68,10 @@ public class Game {
         }
         if (winPlayers.size() > 1) {
             String output = "";
-            for (Player player : players) {
-                output.concat(player.getName() + ", ");
+            for (Player player : winPlayers) {
+                output += (player.getName() + ", ");
             }
-            System.out.println(output + " has max value attribute, choose the winner randomly...");
+            System.out.println(output + " has same max value attribute, choose the winner randomly...");
         }
         Player winPlayer = winPlayers.get((int) (Math.random() * winPlayers.size()));
         System.out.println(winPlayer.getName() + " is the winner in this round");
@@ -96,7 +99,8 @@ public class Game {
             System.out.println(winPlayer.getName() + " choose the attribute...");
             winPlayer = this.play(players.indexOf(winPlayer));
             round++;
-            System.out.println();
+            System.out.println("Enter any key to continue next round");
+            input.nextLine();
         }
         System.out.println("Game finish, " + winPlayer.getName() + " is the final winner");
     }
