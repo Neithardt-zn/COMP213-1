@@ -1,18 +1,30 @@
 import java.util.ArrayList;
 
 /**
- * Created by Lumia on 2017/11/6.
+ * The abstract class Player has one abstract method and can be extends by human players, random computers etc
  */
-public abstract class Player {
+public abstract class Player{
 
+    /**
+     * private field
+     * Holds an ArrayList of Card, number of attributes, number of card and Player name
+     */
     private ArrayList<Card> cards;
     private int numOfAttributes;
     private int numCards;
     private String name;
 
-    public Player(String name, int numCards, int numOfAttributes, boolean warrior) {
+    /**
+     * To construct an object of Player, initialize the player name, number of cards, number of attributes and whether
+     * it use warrior deck
+     * @param name The name of player
+     * @param numOfCards The number of cards player holds
+     * @param numOfAttributes The number of attributes
+     * @param warrior Whether use warrior deck
+     */
+    public Player(String name, int numOfCards, int numOfAttributes, boolean warrior) {
         this.name = name;
-        this.numCards = numCards;
+        this.numCards = numOfCards;
         this.numOfAttributes = numOfAttributes;
         cards = new ArrayList<Card>(this.numCards);
         for (int i = 0; i < this.numCards; i++) {
@@ -21,16 +33,28 @@ public abstract class Player {
         }
     }
 
+    /**
+     * Add card and increase the number of cards
+     * @param card Card object
+     */
     public void addCard(Card card) {
         this.cards.add(card);
         numCards++;
     }
 
+    /**
+     * Get the top card
+     * @return Top card
+     */
     public Card getTop() {
         return this.cards.get(0);
 
     }
 
+    /**
+     * Remove the top card and decrease the number of cards
+     * @return Top card
+     */
     public Card removeTopCard() {
         Card removedCard = this.cards.get(0);
         this.cards.remove(0);
@@ -38,16 +62,32 @@ public abstract class Player {
         return removedCard;
     }
 
+    /**
+     * Abstract method
+     * @return chosen attribute
+     */
     public abstract Attribute chooseAttribute();
 
+    /**
+     * Get name of player
+     * @return Name of player
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Get number of cards
+     * @return Number of cards
+     */
     public int getNumCards() {
         return numCards;
     }
 
+    /**
+     * Get number of attributes
+     * @return Number of attributes
+     */
     public int getNumOfAttributes() {
         return numOfAttributes;
     }

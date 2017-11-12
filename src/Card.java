@@ -1,16 +1,25 @@
 import java.util.ArrayList;
 
 /**
- * @author Neng Zhang
- * @version 1.0
+ * This Class holds the name, all attributes, number of attributes of card
  */
 public class Card {
+    /**
+     * private and final, hold name of card, An ArrayList<Attribute> attributes, and the number of attributes in this card
+     * When this object is created, the private final field is initialized and can't be changed
+     */
     private final String name;
     private final ArrayList<Attribute> attributes;
     private final int numAttributes;
 
-
-
+    /**
+     * To create the object of Card class, and there are two deck of card can be created.
+     * Each card have numbers of random value attributes
+     * The constructor receives three parameters
+     * @param nameOfCard The name of card
+     * @param numAttributes The number of attributes
+     * @param warrior  If use warrior deck
+     */
     public Card(String nameOfCard, int numAttributes, boolean warrior) {
         if (warrior) {
             this.name = nameOfCard;
@@ -64,10 +73,20 @@ public class Card {
         }
     }
 
+    /**
+     * Get the ArrayList of attributes the card holds
+     * @return ArrayList of attributes
+     */
     public ArrayList<Attribute> getAttributes() {
         return attributes;
     }
 
+    /**
+     * Receive an object of Attribute, and choose the same attribute this card holds
+     * @param chosenAttribute The attribute it want to choose
+     * @return The same attribute this card holds
+     * @throws IllegalArgumentException when the same attribute can't be found, it will throw and exception
+     */
     public Attribute getChosenAttribute(Attribute chosenAttribute) throws IllegalArgumentException{
         for (Attribute attribute : attributes) {
             if (attribute.getName().equals(chosenAttribute.getName()))
