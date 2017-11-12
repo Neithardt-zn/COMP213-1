@@ -16,7 +16,7 @@ public abstract class Player {
         this.numOfAttributes = numOfAttributes;
         cards = new ArrayList<Card>(this.numCards);
         for (int i = 0; i < this.numCards; i++) {
-            cards.add(new Card(name + "'s Card " + String.valueOf(i + 1), this.numOfAttributes));
+            cards.add(new Card( "Card " + String.valueOf(i + 1), this.numOfAttributes));
 
         }
     }

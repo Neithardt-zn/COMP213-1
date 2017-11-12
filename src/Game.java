@@ -37,11 +37,13 @@ public class Game {
         for (int i = 0; i < numOfSmartComputer; i++) {
             SmartComputer smartComputer = new SmartComputer("Smart Computer " + String.valueOf(i + 1),
                     numOfCards, numOfAttributes);
+            players.add(smartComputer);
         }
 
         for (int i = 0; i < numOfPredictableComputer; i++) {
             PredictableComputer predictableComputer = new PredictableComputer("Predictable Computer " + String.valueOf(i + 1),
                     numOfCards, numOfAttributes);
+            players.add(predictableComputer);
         }
 
     }
@@ -71,7 +73,7 @@ public class Game {
             for (Player player : winPlayers) {
                 output += (player.getName() + ", ");
             }
-            System.out.println(output + " has same max value attribute, choose the winner randomly...");
+            System.out.println(output + "has same max value attribute, choose the winner randomly...");
         }
         Player winPlayer = winPlayers.get((int) (Math.random() * winPlayers.size()));
         System.out.println(winPlayer.getName() + " is the winner in this round");
@@ -92,14 +94,16 @@ public class Game {
         Player winPlayer = players.get(0);
         while (players.size() > 1) {
             System.out.println("This is round " + round);
-
+            Player randomPlayer = players.get((int)(Math.random() * players.size()));
             for (Player showPlayer : players) {
-                System.out.println(showPlayer.getName() + " has " + showPlayer.getNumCards() + " cards");
+                System.out.println(showPlayer.getName() + " turn " + " has " + showPlayer.getNumCards() + " cards");
             }
-            System.out.println(winPlayer.getName() + " choose the attribute...");
-            winPlayer = this.play(players.indexOf(winPlayer));
+            System.out.println("=========================" + "\nIt's " + randomPlayer.getName() + " turn\n=========================" +
+                    "\nPlease enter any key to continue");
+            input.nextLine();
+            winPlayer = this.play(players.indexOf(randomPlayer));
             round++;
-            System.out.println("Enter any key to continue next round");
+            System.out.println("Enter any key to go next round");
             input.nextLine();
         }
         System.out.println("Game finish, " + winPlayer.getName() + " is the final winner");
