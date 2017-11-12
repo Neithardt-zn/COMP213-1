@@ -6,12 +6,20 @@ import java.util.ArrayList;
 public abstract class Player{
 
     /**
-     * private field
-     * Holds an ArrayList of Card, number of attributes, number of card and Player name
+     * Hold an ArrayList of cards
      */
     private ArrayList<Card> cards;
+    /**
+     * Number of attributes in cards which player holds
+     */
     private int numOfAttributes;
+    /**
+     * Number of cards player holds
+     */
     private int numCards;
+    /**
+     * Name of player
+     */
     private String name;
 
     /**

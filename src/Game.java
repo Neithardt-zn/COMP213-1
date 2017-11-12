@@ -9,15 +9,20 @@ import java.util.Scanner;
 public class Game {
 
     /**
-     * private field
      * Holds an ArrayList of players
-     * Holds the round number
-     * Holds Scanner to read the user input
-     * Holds number of attributes
      */
     private ArrayList<Player> players;
+    /**
+     * Holds the round number
+     */
     private int round = 1;
+    /**
+     * Scanner, to get user input
+     */
     private Scanner input;
+    /**
+     * Number of attributes in this game
+     */
     private int numOfAttributes;
     /**
      * To create a new Game, add corresponding number of players and computers to players ArrayList.

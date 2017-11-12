@@ -5,11 +5,16 @@ import java.util.ArrayList;
  */
 public class Card {
     /**
-     * private and final, hold name of card, An ArrayList<Attribute> attributes, and the number of attributes in this card
-     * When this object is created, the private final field is initialized and can't be changed
+     * Hold the name of card
      */
     private final String name;
+    /**
+     * Hold an ArrayList of attributes
+     */
     private final ArrayList<Attribute> attributes;
+    /**
+     * Number of attributes the card holds
+     */
     private final int numAttributes;
 
     /**

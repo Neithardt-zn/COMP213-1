@@ -5,10 +5,12 @@
  */
 public class Attribute implements Comparable<Attribute> {
     /**
-     * private final field, hold the String name and int value of attribute
-     * when this object is created, this field is initialized and can't be changed
+     * Hold the name of attribute
      */
     private final String name;
+    /**
+     * Hold the value of attribute
+     */
     private final int value;
 
     /**

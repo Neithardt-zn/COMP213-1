@@ -6,7 +6,7 @@ import java.util.Scanner;
  */
 public class HumanPlayer extends Player {
     /**
-     * private field, Scanner, to get user input
+     * Scanner, to get user input
      */
     private Scanner input;
 
