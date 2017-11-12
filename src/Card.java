@@ -42,7 +42,7 @@ public class Card {
      * Print all attributes of card
      */
     public void print() {
-        System.out.println("Card: " + name);
+        System.out.println(name);
         for (Attribute attribute : attributes) {
             attribute.print();
         }

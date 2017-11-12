@@ -25,7 +25,7 @@ public class Attribute implements Comparable<Attribute> {
     }
 
     public void print() {
-        System.out.println("name = " + name + " value = " + value);
+        System.out.println(name + " value = " + value);
     }
 
     public int getValue() {

@@ -1,6 +1,7 @@
 import sun.font.TrueTypeFont;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by Lumia on 2017/11/11.
@@ -9,6 +10,7 @@ public class Game {
 
     private ArrayList<Player> players;
     private int round = 1;
+    private Scanner input;
 
     public Game(int numOfCards,
                 int numOfAttributes,
@@ -17,10 +19,11 @@ public class Game {
                 int numOfSmartComputer,
                 int numOfPredictableComputer) {
 
+        input = new Scanner(System.in);
         players = new ArrayList<>();
         for (int i = 0; i < numOfPlayers; i++) {
             System.out.println("Please enter the name of player " + String.valueOf(i + 1));
-            String nameOfPlayer = System.console().readLine();
+            String nameOfPlayer = input.nextLine();
             HumanPlayer player = new HumanPlayer(nameOfPlayer, numOfCards, numOfAttributes);
             players.add(player);
         }
@@ -44,7 +47,7 @@ public class Game {
     }
 
     public Player play(int currentPlayer) {
-        Attribute chosenAttribute = players.get(currentPlayer - 1).chooseAttribute();
+        Attribute chosenAttribute = players.get(currentPlayer).chooseAttribute();
         System.out.println("Current attribute is " + chosenAttribute.getName());
         ArrayList<Player> winPlayers = new ArrayList<Player>();
         Attribute maxAttribute = chosenAttribute;
@@ -69,13 +72,15 @@ public class Game {
         }
         Player winPlayer = winPlayers.get((int) (Math.random() * winPlayers.size()));
         System.out.println(winPlayer.getName() + " is the winner in this round");
+        ArrayList<Player> removedPlayer = new ArrayList<Player>();
         for (Player lostPlayer : players) {
             winPlayer.addCard(lostPlayer.removeTopCard());
             if ((lostPlayer.getNumCards() == 0) & (!winPlayer.equals(lostPlayer))) {
-                players.remove(lostPlayer);
+                removedPlayer.add(lostPlayer);
                 System.out.println(lostPlayer.getName() + " has no cards.");
             }
         }
+        players.removeAll(removedPlayer);
         return winPlayer;
     }
 
@@ -90,6 +95,8 @@ public class Game {
             }
             System.out.println(winPlayer.getName() + " choose the attribute...");
             winPlayer = this.play(players.indexOf(winPlayer));
+            round++;
+            System.out.println();
         }
         System.out.println("Game finish, " + winPlayer.getName() + " is the final winner");
     }
