@@ -1,3 +1,5 @@
+import sun.font.TrueTypeFont;
+
 import java.util.ArrayList;
 
 /**
@@ -6,7 +8,7 @@ import java.util.ArrayList;
 public class Game {
 
     private ArrayList<Player> players;
-    private int round = 0;
+    private int round = 1;
     public Game(int numOfCards,
                 int numOfAttributes,
                 int numOfPlayers,
@@ -39,10 +41,27 @@ public class Game {
 
     }
 
-    public void nextRound() {
+    public Player play(int currentPlayer) {
+        Attribute chosenAttribute = players.get(currentPlayer - 1).chooseAttribute();
+        ArrayList<Player> winPlayers = new ArrayList<Player>();
+        Attribute maxAttribute = chosenAttribute;
+        for (Player player : players) {
+           Attribute currentAttribute = player.getTop().getChosenAttribute(chosenAttribute);
+           if (maxAttribute.compareTo(currentAttribute) < 0)
+               maxAttribute = chosenAttribute;
+        }
 
+        for (Player player : players) {
+            Attribute currentAttribute = player.getTop().getChosenAttribute(chosenAttribute);
+            if (maxAttribute.compareTo(currentAttribute) == 0)
+                winPlayers.add(player);
+        }
+        return winPlayers.get((int)(Math.random() * winPlayers.size()));
     }
 
+    public void start() {
+        while (true) {
 
-
+        }
+    }
 }

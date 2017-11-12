@@ -52,6 +52,12 @@ public class Card {
         return attributes;
     }
 
-
+    public Attribute getChosenAttribute(Attribute chosenAttribute) throws IllegalArgumentException{
+        for (Attribute attribute : attributes) {
+            if (attribute.getName().equals(chosenAttribute.getName()))
+                return attribute;
+        }
+        throw new IllegalArgumentException("No such attribute");
+    }
 
 }

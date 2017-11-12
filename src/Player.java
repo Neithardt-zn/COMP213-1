@@ -23,6 +23,7 @@ public abstract class Player {
 
     public void addCard(Card card) {
         this.cards.add(card);
+        numCards++;
     }
 
     public Card getTop() {
@@ -33,6 +34,7 @@ public abstract class Player {
     public Card removeCard() {
         Card removedCard = this.cards.get(0);
         this.cards.remove(0);
+        numCards--;
         return removedCard;
     }
 
