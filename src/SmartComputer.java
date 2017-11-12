@@ -5,8 +5,8 @@ import java.util.ArrayList;
  */
 public class SmartComputer extends Player {
 
-    public SmartComputer(String name, int numCards, int numOfAttributes) {
-        super(name, numCards, numOfAttributes);
+    public SmartComputer(String name, int numCards, int numOfAttributes, boolean warrior) {
+        super(name, numCards, numOfAttributes, warrior);
 
     }
 

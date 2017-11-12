@@ -3,8 +3,8 @@
  */
 public class RandomComputer extends Player {
 
-    public RandomComputer(String name, int numOfCards, int numOfAttributes) {
-        super(name, numOfCards, numOfAttributes);
+    public RandomComputer(String name, int numOfCards, int numOfAttributes, boolean warrior) {
+        super(name, numOfCards, numOfAttributes, warrior);
     }
 
     @Override

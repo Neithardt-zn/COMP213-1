@@ -6,14 +6,15 @@ import java.util.Scanner;
 public class HumanPlayer extends Player {
 
     private Scanner input;
-    public HumanPlayer(String name, int numOfCards, int numOfAttributes) {
-        super(name, numOfCards, numOfAttributes);
+    public HumanPlayer(String name, int numOfCards, int numOfAttributes, boolean warrior) {
+        super(name, numOfCards, numOfAttributes, warrior);
     }
 
     @Override
     public Attribute chooseAttribute() {
+        int upperBound = this.getNumOfAttributes();
         input = new Scanner(System.in);
-        System.out.println("Please choose the attributes you want to play with");
+        System.out.println("Please choose the attributes you want to play with (1 to " + upperBound + ")");
         super.getTop().print();
         Boolean valid = false;
         int numAttribute = 0;
@@ -21,7 +22,7 @@ public class HumanPlayer extends Player {
             try {
                 numAttribute = Integer.parseInt(input.nextLine());
                 valid = true;
-                if (numAttribute > this.getNumOfAttributes() || numAttribute <= 0){
+                if (numAttribute > upperBound|| numAttribute <= 0){
                     System.out.println("Please enter valid number");
                     valid = false;
                 }

@@ -3,8 +3,8 @@
  */
 public class PredictableComputer extends Player {
 
-    public PredictableComputer(String name, int numOfCards, int numOfAttributes) {
-        super(name, numOfCards, numOfAttributes);
+    public PredictableComputer(String name, int numOfCards, int numOfAttributes, boolean warrior) {
+        super(name, numOfCards, numOfAttributes, warrior);
     }
 
     @Override

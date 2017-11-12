@@ -11,14 +11,30 @@ public class Card {
 
 
 
-    public Card(String nameOfCard, int numAttributes) {
-        this.numAttributes = numAttributes;
-        this.name = nameOfCard;
-        attributes = new ArrayList<Attribute>(numAttributes);
-        for (int i = 0; i < numAttributes; i++) {
-            String name = "Attributes " + String.valueOf(i + 1);
-            int value = (int)(Math.random() * 10);
-            attributes.add(new Attribute(name, value));
+    public Card(String nameOfCard, int numAttributes, boolean warrior) {
+        if (warrior) {
+            this.name = nameOfCard;
+            this.numAttributes = 4;
+            attributes = new ArrayList<Attribute>(numAttributes);
+            int value1 = (int) (Math.random() * 10);
+            int value2 = (int) (Math.random() * 10);
+            int value3 = (int) (Math.random() * 10);
+            int value4 = (int) (Math.random() * 10);
+            attributes.add(new Attribute("Strength", value1));
+            attributes.add(new Attribute("Health Point", value2));
+            attributes.add(new Attribute("Armor", value3));
+            attributes.add(new Attribute("Speed", value4));
+
+        }
+        else{
+            this.numAttributes = numAttributes;
+            this.name = nameOfCard;
+            attributes = new ArrayList<Attribute>(numAttributes);
+            for (int i = 0; i < numAttributes; i++) {
+                String name = "Attributes " + String.valueOf(i + 1);
+                int value = (int) (Math.random() * 10);
+                attributes.add(new Attribute(name, value));
+            }
         }
     }
 

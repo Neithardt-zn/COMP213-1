@@ -10,13 +10,13 @@ public abstract class Player {
     private int numCards;
     private String name;
 
-    public Player(String name, int numCards, int numOfAttributes) {
+    public Player(String name, int numCards, int numOfAttributes, boolean warrior) {
         this.name = name;
         this.numCards = numCards;
         this.numOfAttributes = numOfAttributes;
         cards = new ArrayList<Card>(this.numCards);
         for (int i = 0; i < this.numCards; i++) {
-            cards.add(new Card( "Card " + String.valueOf(i + 1), this.numOfAttributes));
+            cards.add(new Card( "Card " + String.valueOf(i + 1), this.numOfAttributes, warrior));
 
         }
     }

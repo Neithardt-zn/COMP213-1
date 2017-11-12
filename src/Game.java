@@ -17,32 +17,34 @@ public class Game {
                 int numOfPlayers,
                 int numOfRandomComputer,
                 int numOfSmartComputer,
-                int numOfPredictableComputer) {
+                int numOfPredictableComputer,
+                boolean warrior
+                ) {
 
         input = new Scanner(System.in);
         players = new ArrayList<>();
         for (int i = 0; i < numOfPlayers; i++) {
             System.out.println("Please enter the name of player " + String.valueOf(i + 1));
             String nameOfPlayer = input.nextLine();
-            HumanPlayer player = new HumanPlayer(nameOfPlayer, numOfCards, numOfAttributes);
+            HumanPlayer player = new HumanPlayer(nameOfPlayer, numOfCards, numOfAttributes, warrior);
             players.add(player);
         }
 
         for (int i = 0; i < numOfRandomComputer; i++) {
             RandomComputer randomComputer = new RandomComputer("Random Computer " + String.valueOf(i + 1),
-                    numOfCards, numOfAttributes);
+                    numOfCards, numOfAttributes, warrior);
             players.add(randomComputer);
         }
 
         for (int i = 0; i < numOfSmartComputer; i++) {
             SmartComputer smartComputer = new SmartComputer("Smart Computer " + String.valueOf(i + 1),
-                    numOfCards, numOfAttributes);
+                    numOfCards, numOfAttributes, warrior);
             players.add(smartComputer);
         }
 
         for (int i = 0; i < numOfPredictableComputer; i++) {
             PredictableComputer predictableComputer = new PredictableComputer("Predictable Computer " + String.valueOf(i + 1),
-                    numOfCards, numOfAttributes);
+                    numOfCards, numOfAttributes, warrior);
             players.add(predictableComputer);
         }
 
@@ -96,7 +98,7 @@ public class Game {
             System.out.println("This is round " + round);
             Player randomPlayer = players.get((int)(Math.random() * players.size()));
             for (Player showPlayer : players) {
-                System.out.println(showPlayer.getName() + " turn " + " has " + showPlayer.getNumCards() + " cards");
+                System.out.println(showPlayer.getName() + " has " + showPlayer.getNumCards() + " cards");
             }
             System.out.println("=========================" + "\nIt's " + randomPlayer.getName() + " turn\n=========================" +
                     "\nPlease enter any key to continue");

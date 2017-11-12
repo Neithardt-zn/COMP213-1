@@ -1,5 +1,6 @@
 /**
- * Created by Lumia on 2017/11/9.
+ * This class holds the name and value of attributes, and the object of this class
+ * will be added to card when card is created
  */
 public class Attribute implements Comparable<Attribute> {
 
